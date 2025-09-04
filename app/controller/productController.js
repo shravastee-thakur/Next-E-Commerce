@@ -13,3 +13,12 @@ export const createProduct = async (req) => {
   });
 };
 
+export const getProducts = async (req) => {
+  const product = await Product.find();
+
+  return NextResponse.json({
+    message: "All products fetched successfully",
+    success: true,
+    product,
+  });
+};
