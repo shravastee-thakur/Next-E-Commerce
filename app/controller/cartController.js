@@ -12,3 +12,21 @@ export const addToCart = async (req) => {
     cartItem: newCart,
   });
 };
+
+export const getCartItems = async (req) => {
+  const cartItems = await Cart.find();
+
+  return NextResponse.json({
+    message: "Fetched all cart items",
+    success: true,
+    cartItems,
+  });
+};
+
+export const clearCart = async (req) => {
+  await Cart.deleteMany({});
+  return NextResponse.json({
+    message: "No item in the cart",
+    success: true,
+  });
+};
