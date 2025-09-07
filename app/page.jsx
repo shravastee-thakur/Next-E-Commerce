@@ -1,9 +1,15 @@
-import React from 'react'
+"use client";
+import React from "react";
+import Product from "./components/Product";
+import { useProductContext } from "./context/ProductContext";
 
 const page = () => {
+  const { data } = useProductContext();
   return (
-    <div>page</div>
-  )
-}
+    <div>
+      <Product items={data} />
+    </div>
+  );
+};
 
-export default page
+export default page;
